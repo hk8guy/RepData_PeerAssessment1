@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -15,7 +20,7 @@ total_steps <- aggregate(steps ~ date,data = my_data, FUN = sum, na.rm = TRUE)
 hist(total_steps$steps, xlab = "Total steps", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/daily_steps-1.png) 
+![plot of chunk daily_steps](figure/daily_steps-1.png) 
 
 ```r
 mean_steps <- as.integer(mean(total_steps$steps))
@@ -32,7 +37,7 @@ plot(average_steps$interval, average_steps$steps, type = "l",
      xlab = "Interval", ylab = "Average steps", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/interval_steps-1.png) 
+![plot of chunk interval_steps](figure/interval_steps-1.png) 
 
 ```r
 max_average_steps <- as.integer(max(average_steps$steps))
@@ -56,7 +61,7 @@ total_steps_filled <- aggregate(steps ~ date, data = filled_data, FUN = sum, na.
 hist(total_steps_filled$steps, xlab = "Total steps (Filled data)", col = "blue")
 ```
 
-![](PA1_template_files/figure-html/interval_steps_filled-1.png) 
+![plot of chunk interval_steps_filled](figure/interval_steps_filled-1.png) 
 
 ```r
 mean_steps_filled <- as.integer(mean(total_steps_filled$steps))
@@ -80,4 +85,4 @@ library(lattice)
 xyplot(steps ~ interval | weekend, data = average_steps_filled, type = "l", layout = c(1, 2), xlab = "Interval", ylab = "Number of steps")
 ```
 
-![](PA1_template_files/figure-html/weekend_interval_steps-1.png) 
+![plot of chunk weekend_interval_steps](figure/weekend_interval_steps-1.png) 
